@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.sendandtake.www.main.model.MainVO;
+import com.sendandtake.www.main.model.ProductVO;
 import com.sendandtake.www.main.service.MainService;
 
 @Controller
@@ -20,7 +21,7 @@ public class MainController {
 	String main (Model model) {
 		
 		
-	List<MainVO> list = mainService.selectList();
+	List<ProductVO> list = mainService.selectList();
 	
 	model.addAttribute("list", list);
 		

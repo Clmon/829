@@ -1,24 +1,24 @@
-package com.sendandtake.www.main.service.impl;
+package com.sendandtake.www.main.dao.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.sendandtake.www.main.dao.ProductDao;
 import com.sendandtake.www.main.model.ProductVO;
-import com.sendandtake.www.main.service.MainService;
 
-@Service
-public class MainServiceImpl implements MainService {
+@Repository
+public class ProductDaoImpl implements ProductDao{
 
 	@Autowired
-	ProductDao productDao;
+	SqlSession sql;
 	
 	@Override
 	public List<ProductVO> selectList() {
 
-		return productDao.selectList();
+		return sql.selectList("main.list");
 	}
 
 }
